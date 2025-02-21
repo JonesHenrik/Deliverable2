@@ -10,27 +10,36 @@ var choice = Console.ReadLine();
 
 if (choice == "yes" || choice == "y" || choice == "Yes")
 {
+    Random r = new Random();
     for (var i = 0; i < 5; i++)
     {
         Console.WriteLine("Heads or Tails");
         var answer = Console.ReadLine();
-        
-        // Only picks 0 right now
-        Random random = new Random();
-        int randomNumber = random.Next(0, 1);
 
-        if (answer == "Heads" || answer == "heads" && randomNumber == 0)
+       
+        int randomNumber = r.Next(0,2);
+
+        if ((answer == "Heads" || answer == "heads") && randomNumber == 0)
         {
             score += 1;
+            
             Console.WriteLine("Correct!");
-        } else if (answer == "Tails" || answer == "tails" && randomNumber == 1)
+            //Console.WriteLine($"{randomNumber}");
+            
+        } else if ((answer == "Tails" || answer == "tails") && randomNumber == 1)
         {
             score += 1;
+            
             Console.WriteLine("Correct!");
+            //Console.WriteLine($"{randomNumber}");
+            
         }
         else
         {
+            
             Console.WriteLine("Wrong!");
+            //Console.WriteLine($"{randomNumber}");
+            
         }
     }
     Console.WriteLine($"Thank you {username}! You got a score of {score}!");
